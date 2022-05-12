@@ -11,15 +11,18 @@ EOF
 
 yum -y install MariaDB-server MariaDB-client
  systemctl start mysql
-/usr/bin/mysql_secure_installation
- systemctl start mysql
-	
-mysql -u root -p
-CREATE DATABASE glpi;
-CREATE USER 'glpi'@'%' IDENTIFIED BY 'senhadodbglpi';
-GRANT ALL PRIVILEGES ON `glpi`.* TO 'glpi'@'%';
-FLUSH PRIVILEGES;
-exit;
+
+mariadb-secure-installation
+systemctl start mysql
+
+
+mysql -uroot -p vubis@2022 -e "create database mbilling;"
+mysql -uroot -p vubis@2022 -e "CREATE USER 'glpi'@'%' IDENTIFIED BY 'senhadodbglpi';"
+
+mysql -uroot -p vubis@2022 -e "CREATE USER 'glpi'@'localhost' IDENTIFIED BY 'vubis@2022';"
+mysql -uroot -p vubis@2022 -e "GRANT ALL PRIVILEGES ON \`glpi\` . * TO 'glpi'@'localhost' WITH GRANT OPTION;FLUSH PRIVILEGES;"    
+mysql -uroot -p vubis@2022 -e "GRANT FILE ON * . * TO  'glpi'@'localhost' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;"
+
 firewall-cmd --permanent --add-service=mysql
 firewall-cmd --reload
 yum -y install httpd php 
