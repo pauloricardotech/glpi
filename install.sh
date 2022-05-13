@@ -1,6 +1,6 @@
 #!/bin/bash
 yum install httpd -y
-touch /etc/yum.repos.d/MariaDB.repo
+echo "
 cat <<EOF > /etc/yum.repos.d/MariaDB.repo
 # MariaDB 10.2 CentOS repository list - created 2017-02-21 12:11 UTC
 # http://downloads.mariadb.org/mariadb/repositories/
@@ -8,8 +8,7 @@ cat <<EOF > /etc/yum.repos.d/MariaDB.repo
 name = MariaDB
 baseurl = http://yum.mariadb.org/10.2/centos7-amd64
 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
-gpgcheck=1
-EOF
+" >> /etc/yum.repos.d/MariaDB.repo
 
 
 yum -y install MariaDB-server MariaDB-client
