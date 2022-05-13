@@ -3,7 +3,7 @@ yum install httpd -y
 echo "[mariadb]
 name = MariaDB
 baseurl = http://yum.mariadb.org/10.2/centos7-amd64
-gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB"
  >> /etc/yum.repos.d/MariaDB.repo
 
 
