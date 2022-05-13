@@ -1,7 +1,6 @@
 #!/bin/bash
 yum install httpd -y
 echo "
-cat <<EOF > /etc/yum.repos.d/MariaDB.repo
 # MariaDB 10.2 CentOS repository list - created 2017-02-21 12:11 UTC
 # http://downloads.mariadb.org/mariadb/repositories/
 [mariadb]
