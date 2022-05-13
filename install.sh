@@ -45,7 +45,7 @@ sudo yum -y install yum-utils
 sudo yum-config-manager --enable remi-php74
 sudo yum update
 sudo yum install php php-cli
-sudo yum install php  php-cli php-fpm php-mysqlnd php-zip php-devel php-gd php-mcrypt php-mbstring php-curl php-xml php-pear php-bcmath php-json php-opcache php-apcu php-pear-CAS php-intl php-gd
+sudo yum install php  php-cli php-fpm php-mysqlnd php-zip php-devel php-gd php-mcrypt php-mbstring php-curl php-xml php-pear php-bcmath php-json php-opcache php-apcu php-pear-CAS php-intl php-gd -y
 cat <<EOF > /etc/selinux/config
 # This file controls the state of SELinux on the system.
 # SELINUX= can take one of these three values:
